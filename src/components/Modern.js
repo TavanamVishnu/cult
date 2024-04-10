@@ -1,5 +1,10 @@
 import React from 'react';
 import { Container, Card, Button } from 'react-bootstrap';
+import croprot from '../assets/croprot.jpg'
+import drip from '../assets/drip.jpg'
+import mulching from '../assets/mulching.jpg'
+import agro from '../assets/agro.jpg'
+import organic from '../assets/organic.jpg'
 
 const Modern = () => {
   const methods = [
@@ -9,7 +14,7 @@ const Modern = () => {
       description: 'Helps in maintaining soil fertility and preventing pest problems.',
       tools: 'Cultivator',
       price: 'INR 2000 - INR 25000',
-      imageUrl: 'https://via.placeholder.com/150'
+      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmKdposOUfjDNdgWdkTvkuXZ2MM5i549s7niHgqt71AQ&s'
     },
     {
       id: 2,
@@ -17,7 +22,7 @@ const Modern = () => {
       description: 'Reduces soil erosion and increases soil moisture.',
       tools: 'Cow dung/sugarcane bags',
       price: '',
-      imageUrl: 'https://via.placeholder.com/150'
+      imageUrl: 'https://media.istockphoto.com/id/1427610220/photo/growing-plants-in-the-plantation-fields-by-mulching.jpg?s=612x612&w=0&k=20&c=0Ayf0wsOMl9UdxdCRomukQEj46lpf7LWAV0a_hQkzJI='
     },
     {
       id: 3,
@@ -25,7 +30,7 @@ const Modern = () => {
       description: 'Efficient water use and nutrient delivery directly to plant roots.',
       tools: 'Drip lines, emitters',
       price: 'INR 5000 - INR 30000',
-      imageUrl: 'https://via.placeholder.com/150'
+      imageUrl: 'https://media.istockphoto.com/id/1319625630/photo/seedlings-of-cucumbers-in-a-greenhouse-on-irrigation.jpg?s=612x612&w=0&k=20&c=ybgFoihuQwPGjRtAGXt8d_xlMJE-ogfxezKdbzxgbbk='
     },
     {
       id: 4,
@@ -33,7 +38,7 @@ const Modern = () => {
       description: 'Avoids synthetic chemicals and encourages natural processes.',
       tools: 'Compost, organic fertilizers',
       price: 'INR 10000 - INR 50000',
-      imageUrl: 'https://via.placeholder.com/150'
+      imageUrl: 'https://img.freepik.com/free-photo/woman-holding-basket-full-different-vegetables_23-2148580022.jpg?size=626&ext=jpg&ga=GA1.1.735520172.1710806400&semt=ais'
     },
     {
       id: 5,
@@ -41,7 +46,7 @@ const Modern = () => {
       description: 'Integrates trees and shrubs into agricultural land for multiple benefits.',
       tools: 'Saplings, pruning tools',
       price: 'INR 15000 - INR 60000',
-      imageUrl: 'https://via.placeholder.com/150'
+      imageUrl: 'https://media.istockphoto.com/id/1289707100/photo/reforestation-in-the-amazon-region-with-shizolobium-amazonicum.jpg?s=612x612&w=0&k=20&c=0Rc84nTSoYbke01pWMXvFoPK-v4NYnUjI9XywWTITR4='
     }
   ];
 

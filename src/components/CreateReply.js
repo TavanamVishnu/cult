@@ -34,5 +34,4 @@ const CreateReply = ({ postId, onClose }) => {
     </div>
   );
 };
-
 export default CreateReply;

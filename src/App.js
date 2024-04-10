@@ -11,12 +11,13 @@ import RecommendationComponent from './components/Recommend';
 import Authentication from './components/Authentication';
 import CreatePost from './components/CreatePost';
 import ViewPosts from './components/ViewPosts';
-import Bot from './components/Bot'
+
+import Footer from './components/Footer';
 const App = () => {
   return (
     <Router>
       <Navi />
-      <div style={{ marginTop: '60px' }}>
+      <div >
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -31,7 +32,8 @@ const App = () => {
           </Routes>
         </div>
       </div>
-     <Bot />
+
+     <Footer />
     </Router>
   );
 };

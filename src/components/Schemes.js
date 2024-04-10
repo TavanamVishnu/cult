@@ -1,5 +1,7 @@
 import React from 'react';
-import { Container, Row, Col, Table, Button, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import './Schemes.css'; // Import your CSS file
+import schemes from '../assets/schemes.jpg'
 
 const Schemes = () => {
   // Sample data for central schemes (replace it with your actual data)
@@ -77,48 +79,54 @@ const Schemes = () => {
   ];
 
   return (
-    <Container>
-      <Row>
+    <Container className="page-container" >
+      <Row className="mt-5">
         <Col>
-          <Card className="mt-5">
-            <Card.Title className="text-center">Central Government Schemes</Card.Title>
+          <Card className="scheme-card">
             <Card.Body>
-              <Table striped bordered hover>
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Link</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {centralSchemes.map((scheme) => (
-                    <tr key={scheme.name}>
-                      <td>{scheme.name}</td>
-                      <td>{scheme.description}</td>
-                      <td>{scheme.category}</td>
-                      <td> <a href={scheme.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary" > Learn More </a> </td> </tr> ))} </tbody>
-                       </Table> 
-                       </Card.Body> 
-                       </Card> 
-                       </Col> 
-                       </Row>
-                        <Row>
-                           <Col> 
-                           <Card className="mt-5"> <Card.Title className="text-center">Telangana State Government Schemes</Card.Title> 
-                        <Card.Body> 
-                          <Table striped bordered hover>
-                             <thead> <tr> <th>Name</th>
-                              <th>Description</th> 
-                             <th>Category</th>
-                              <th>Link</th> </tr> </thead>
-                               <tbody> {telanganaSchemes.map((scheme) => ( <tr key={scheme.name}> <td>{scheme.name}</td> 
-                               <td>{scheme.description}</td> <td>{scheme.category}</td>
-                                <td> <a href={scheme.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary" > Learn More </a> </td> </tr> ))} 
-                                </tbody> </Table> 
-                                </Card.Body> </Card> 
-                                </Col>
-                                 </Row> 
-                                 </Container> ); };
+              <div className="scheme-heading">
+                <h2 className="scheme-heading-title">Central Government Schemes</h2>
+                <div className="scheme-heading-decoration"></div>
+              </div>
+              {centralSchemes.map((scheme, index) => (
+                <div key={index} className="scheme-item">
+                  <div className="scheme-content">
+                    <h4>{scheme.name}</h4>
+                    <p>{scheme.description}</p>
+                    <p><strong>Category: </strong>{scheme.category}</p>
+                    <Button variant="primary" href={scheme.link} target="_blank" rel="noopener noreferrer">Learn More</Button>
+                  </div>
+                </div>
+              ))}
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+      <Row className="mt-5">
+        <Col>
+          <Card className="scheme-card">
+            <Card.Body>
+              <div className="scheme-heading">
+                <h2 className="scheme-heading-title">Telangana State Government Schemes</h2>
+                <div className="scheme-heading-decoration"></div>
+              </div>
+              {telanganaSchemes.map((scheme, index) => (
+                <div key={index} className="scheme-item">
+                  <div className="scheme-content">
+                    <h4>{scheme.name}</h4>
+                    <p>{scheme.description}</p>
+                    <p><strong>Category: </strong>{scheme.category}</p>
+                    <Button variant="primary" href={scheme.link} target="_blank" rel="noopener noreferrer">Learn More</Button>
+                  </div>
+                </div>
+              ))}
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
+  );
+  
+};
+
 export default Schemes;

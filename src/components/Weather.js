@@ -1,6 +1,78 @@
 import React, { useState } from 'react';
-import { Card, Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import backgroundImageUrl from '../assets/weather.jpg'
 
+const WeatherInfoContainer = styled.div`
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`;
+
+const WeatherInfoHeader = styled.h2`
+  color: #2193b0;
+  margin-bottom: 0.5rem;
+`;
+
+const WeatherInfoText = styled.p`
+  color: #333;
+  margin: 0.25rem 0;
+`;
+
+const WeatherIcon = styled.img`
+  width: 100px;
+  height: 100px;
+`;
+
+
+
+const NeumorphicContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url(${backgroundImageUrl}) no-repeat center center fixed;
+  background-size: cover;
+`;
+
+
+
+const NeumorphicCard = styled(motion.div)`
+  background: #e0e5ec;
+  border-radius: 20px;
+  box-shadow: -8px -8px 20px #ffffff, 8px 8px 20px #babecc;
+  padding: 2rem;
+  max-width: 400px;
+  
+  margin: 2rem;
+  text-align: center;
+`;
+
+const NeumorphicButton = styled(motion.button)`
+  background: #e0e5ec;
+  color: #6d6875;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  box-shadow: -2px -2px 5px #ffffff, 2px 2px 5px #babecc;
+  cursor: pointer;
+  &:hover {
+    background: #ccd1d9;
+  }
+`;
+
+const NeumorphicInput = styled.input`
+  background: #e0e5ec;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  box-shadow: inset -2px -2px 5px #ffffff, inset 2px 2px 5px #babecc;
+  width: calc(100% - 1.5rem);
+`;
 const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState(null);
@@ -49,57 +121,49 @@ const Weather = () => {
       setError('Please enter both latitude and longitude.');
     }
   };
-
+  
   return (
-    <Container>
-      <Row className="justify-content-md-center">
-        <Col md={6}>
-          <Form>
-            <Button variant="primary" onClick={getLocationWeather}>
-              Get Weather for My Location
-            </Button>
-          </Form>
-          <br />
-          <Form onSubmit={getManualWeather}>
-            <Form.Group controlId="manualLatitude">
-              <Form.Label>Enter Latitude:</Form.Label>
-              <Form.Control
-                type="text"
-                value={manualLatitude}
-                onChange={(e) => setManualLatitude(e.target.value)}
-                placeholder="Latitude"
-              />
-            </Form.Group>
-            <Form.Group controlId="manualLongitude">
-              <Form.Label>Enter Longitude:</Form.Label>
-              <Form.Control
-                type="text"
-                value={manualLongitude}
-                onChange={(e) => setManualLongitude(e.target.value)}
-                placeholder="Longitude"
-              />
-            </Form.Group>
-            <br/>
-            <Button variant="primary" type="submit">
-              Get Weather for Entered Coordinates
-            </Button>
-          </Form>
-          <br />
-          {error && <Alert variant="danger">{error}</Alert>}
-          {weatherData && (
-            <Card className="mt-3">
-              <Card.Body>
-                <Card.Title>{weatherData.name}, {weatherData.sys.country}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{weatherData.weather[0].description}</Card.Subtitle>
-                <Card.Text>Temperature: {weatherData.main.temp}°K</Card.Text>
-                <Card.Text>Humidity: {weatherData.main.humidity}%</Card.Text>
-                <Card.Text>Wind Speed: {weatherData.wind.speed} m/s</Card.Text>
-              </Card.Body>
-            </Card>
-          )}
-        </Col>
-      </Row>
-    </Container>
+    
+    <NeumorphicContainer>
+      
+      <NeumorphicCard
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <NeumorphicButton onClick={getLocationWeather}>
+          Get My Location Weather
+        </NeumorphicButton>
+        <form onSubmit={getManualWeather}>
+          <NeumorphicInput
+            type="text"
+            value={manualLatitude}
+            onChange={(e) => setManualLatitude(e.target.value)}
+            placeholder="Latitude"
+          />
+          <NeumorphicInput
+            type="text"
+            value={manualLongitude}
+            onChange={(e) => setManualLongitude(e.target.value)}
+            placeholder="Longitude"
+          />
+          <NeumorphicButton type="submit">
+            Get Entered Coordinates Weather
+          </NeumorphicButton>
+        </form>
+        {error && <p>{error}</p>}
+        {weatherData && (
+  <WeatherInfoContainer>
+    <WeatherInfoHeader>{weatherData.name}, {weatherData.sys.country}</WeatherInfoHeader>
+    <WeatherIcon src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`} alt="weather icon" />
+    <WeatherInfoText>{weatherData.weather[0].description}</WeatherInfoText>
+    <WeatherInfoText>Temperature: {(weatherData.main.temp - 273.15).toFixed(2)}°C</WeatherInfoText>
+    <WeatherInfoText>Humidity: {weatherData.main.humidity}%</WeatherInfoText>
+    <WeatherInfoText>Wind Speed: {weatherData.wind.speed} m/s</WeatherInfoText>
+  </WeatherInfoContainer>
+)}
+      </NeumorphicCard>
+    </NeumorphicContainer>
   );
 };
 
