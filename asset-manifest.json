@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/cult/static/css/main.a3db3aee.css",
+    "main.js": "/cult/static/js/main.3424b696.js",
+    "static/js/787.5bd43ee5.chunk.js": "/cult/static/js/787.5bd43ee5.chunk.js",
+    "static/media/weather.jpg": "/cult/static/media/weather.10359684550944d390ee.jpg",
+    "static/media/cropdiv.png": "/cult/static/media/cropdiv.953f3b504e8f76026dc6.png",
+    "static/media/schemes.jpg": "/cult/static/media/schemes.9c256eae9163c7cda4f4.jpg",
+    "static/media/iot-in-agriculture.jpg": "/cult/static/media/iot-in-agriculture.13f6f47932ea6b2a61be.jpg",
+    "static/media/croprot.jpg": "/cult/static/media/croprot.e5fe647923b4387504a9.jpg",
+    "static/media/im2.jpg": "/cult/static/media/im2.bafcbcdd4bbe72d5f648.jpg",
+    "static/media/im3.jpg": "/cult/static/media/im3.6d9ef293519be796c44f.jpg",
+    "static/media/drip.jpg": "/cult/static/media/drip.ae59991a6eb1b158f2f8.jpg",
+    "index.html": "/cult/index.html",
+    "main.a3db3aee.css.map": "/cult/static/css/main.a3db3aee.css.map",
+    "main.3424b696.js.map": "/cult/static/js/main.3424b696.js.map",
+    "787.5bd43ee5.chunk.js.map": "/cult/static/js/787.5bd43ee5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a3db3aee.css",
+    "static/js/main.3424b696.js"
+  ]
+}
